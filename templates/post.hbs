@@ -1,0 +1,89 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect the Dots</title>
+
+    <meta rel="canonical" href="{{blog.url}}/{{path}}">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Kalam:400,300,700">
+
+    <script>document.documentElement.className = 'js';</script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="wrapper-body">
+        <div class="container">
+          <a href="/" class="logo">Connect the Dots</a>
+
+          <div class="header">
+            <h1 class="text-center">{{title}}</h1>
+
+            {{#if subtitle}}
+            <h4 class="subheader text-center">{{subtitle}}</h4>
+            {{/if}}
+
+          </div>
+
+          <div class="content{{#if size}} content-{{size}}{{/if}}">
+            {{{contents}}}
+          
+            <div class="post-date"><h5>Posted on: {{dateFormat date 'MMMM D, YYYY'}}</h5></div>
+
+            <div class="recent-posts">
+              {{#if previous}}
+                <p class="prev-post">{{!-- <span class="icon-left-open"></span> --}}Previous post: <a class="prev-post-link" href="/{{previous.path}}">{{previous.title}}</a></p>
+              {{/if}}
+
+              {{#if next}}
+                <p class="next-post">{{!-- <span class="icon-right-open"></span> --}}Next post: <a class="next-post-link" href="/{{next.path}}">{{next.title}}</a></p>
+              {{/if}}
+            </div>
+
+            <nav class="nav">
+              <span id="sidebar-toggle" class="nav-item sidebar-toggle">Posts</span>
+            </nav> 
+
+            <div id="sidebar" class="sidebar">
+              <h2 class="sidebar-header">POSTS</h2>
+              <ul class="sidebar-toc">
+                {{#each latest}}
+                {{#if (eq path ../path)}}
+                  <li class="sidebar-toc-current"><a href="/{{path}}">{{title}}</a></li>
+                {{else}}
+                  <li><a href="/{{path}}">{{title}}</a></li>
+                {{/if}}
+                {{/each}}
+              </ul>
+              <div class="sidebar-nav">
+                <a class="nav-link" href="#">subscribe</a>
+                <a class="nav-link" href="/archive">archive</a>
+                <a class="nav-link" href="/about">about</a>
+              </div>
+            </div>
+ 
+          </div>
+
+          <footer>
+            <div class="footer-nav">
+                <a class="footer-nav nav-link " href="#">subscribe</a>
+                <a class="footer-nav nav-link" href="/archive">archive</a>
+                <a class="footer-nav nav-link" href="/about">about</a>
+            </div>
+
+            <br>Made from scratch with <span class="icon-heart-2"></span> and lots of <span class="icon-emo-coffee"></span>
+            
+            <br>by yours truly, &copy; Roxanne Ravago
+          </footer>
+        </div>
+      </div>
+    </div>
+    
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect the Dots</title>
+
+    <meta rel="canonical" href="{{blog.url}}/{{path}}">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Kalam:400,300,700">
+
+    <script>document.documentElement.className = 'js';</script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="wrapper-body">
+        <div class="container">
+          <a href="/" class="logo"></a>
+
+          <div class="content{{#if size}} content-{{size}}{{/if}} content-archive">
+            {{#each archive}}
+              <div class="year">{{@key}}</div>
+              <div class="month-of-posts">
+                {{#each .}}
+                  <div class="month"><h2>{{@key}}</h2></div>
+                  {{#each .}}
+                    <div class="single-post">
+                      {{dateFormat date 'D'}} <a href="/{{path}}">{{title}}</a>
+                    </div>
+                  {{/each}}
+                {{/each}}
+              </div>
+            {{/each}}
+
+            <footer>
+              <div class="footer-nav">
+                  <a class="footer-nav nav-link " href="#">subscribe</a>
+                  <a class="footer-nav nav-link" href="/archive">archive</a>
+                  <a class="footer-nav nav-link" href="/about">about</a>
+              </div>
+
+              <br>Made from scratch with <span class="icon-heart-2"></span> and lots of <span class="icon-emo-coffee"></span>
+            
+              <br>by yours truly, &copy; Roxanne Ravago
+          </footer>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <script src="/js/main.js"></script>
+  </body>
+</html>
